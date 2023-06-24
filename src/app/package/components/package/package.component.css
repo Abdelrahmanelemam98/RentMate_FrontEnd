@@ -1,0 +1,63 @@
+.row {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 100vw;
+}
+
+.main-wrapper {
+  text-align: center;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.card {
+  background-color: whitesmoke;
+  padding: 30px;
+  border: 0.1px solid rgb(223, 219, 219);
+  border-radius: 5px;
+  height: 500px;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  width: 100%;
+}
+.card button {
+  display: inline-block;
+
+  background-color: rgb(255, 190, 70);
+  width: 200px;
+  padding: 17px;
+  border: none;
+}
+.card button:hover {
+  background-color: orange;
+}
+.card p {
+  padding: 7px;
+}
+
+b {
+  font-weight: bold;
+  font-size: 30px;
+}
+.type {
+  padding: 30px;
+}
+.paragraphs {
+  padding-top: 20px;
+  padding-bottom: 70px;
+}
+
+#card-plus {
+  background-color: rgb(223, 243, 250);
+}
+.star {
+  background-color: white;
+  margin-left: 170px;
+  padding: 5px;
+  color: gray;
+  margin-top: -29px;
+  font-size: 20px;
+}

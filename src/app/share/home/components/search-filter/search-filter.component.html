@@ -1,0 +1,53 @@
+<div class="main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="main">
+        <div class="inner-main">
+          <div class="heading-inner">
+            <h1 class="">
+              Buy or rent properties
+              <br />
+              with no commission
+            </h1>
+          </div>
+        </div>
+        <div class="filter mx-auto mt-lg-1 p-4">
+          <form class="row mb-sm-3">
+            <select
+              class="col-lg-4 col-sm-12 m-1 block appearance-none text-gray-600 w-full bg-white border hover:border-gray-500 px-5 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="Category"
+              name="code"
+              (change)="modelChange($event)"
+            >
+              <option value="" disabled selected>Category</option>
+              <option *ngFor="let item of type" [value]="item">
+                {{ item }}
+                <!--Country-->
+              </option>
+            </select>
+            <select
+              class="col-lg-4 col-sm-12 m-1 block appearance-none text-gray-600 w-full bg-white border hover:border-gray-500 px-5 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="City"
+              name="code"
+              (change)="modelChange2($event)"
+            >
+              <option value="" disabled selected>City</option>
+              <option *ngFor="let item of cities" [value]="item">
+                {{ item }}
+                <!--Country-->
+              </option>
+            </select>
+
+            <button
+              type="button"
+              class="col-lg col-sm-12 m-1 btn btn-warning"
+              (click)="clickEvent($event)"
+            >
+              Search Property
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

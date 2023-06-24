@@ -1,0 +1,57 @@
+<p>enquiry works!</p>
+<div class="main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="header-content">
+          <h2>Discover a new way of living</h2>
+          <p class="paragraph">
+            Feugait scriptorem qui ea, quo admodum eloquentiam eu. Te malis
+            tibique eum. Ne magna assum everti.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-content" style="width: 25rem">
+          <form (ngSubmit)="onSubmit()">
+            <h1>Make an enquiry</h1>
+            <p>
+              Save your time and easily rent your property with the lowest
+              commission on the real estate market
+            </p>
+            <input
+              type="text"
+              formControlName="username"
+              id="name"
+              placeholder="your name*"
+            />
+            <input
+              type="text"
+              formControlName="email"
+              id="email"
+              placeholder="your email*"
+            />
+            <input
+              type="text"
+              formControlName="phone"
+              id="phone"
+              placeholder="your phone number*"
+            />
+            <textarea
+              formControlName="message"
+              id="message"
+              placeholder="your message"
+              class="custom-textarea"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+
+            <button type="submit" id="enquiry">Make an enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

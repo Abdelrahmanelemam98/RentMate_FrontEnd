@@ -1,0 +1,43 @@
+.main-wrapper {
+  width: 98%;
+  height: 100%;
+  border-radius: 10px;
+  background-image: url("../../../../.././assets/image/HomePage/home-rev-img-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+  margin-bottom: 3rem;
+  padding-bottom: 10rem;
+}
+.main {
+  width: 100%;
+  padding-top: 10rem;
+}
+.inner-main {
+  width: 100%;
+}
+.heading-inner {
+  color: #ffffff;
+}
+.heading-inner h1 {
+  line-height: 75px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 75px;
+  vertical-align: baseline;
+  font-size: 60px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+.filter {
+  padding-top: 1.5rem !important;
+  padding-bottom: 0.8rem !important;
+  padding-left: 1.8rem !important;
+  padding-right: 1.8rem !important;
+  border: 1px solid #ffffff69;
+  border-radius: 5px;
+  background-color: #ffffff69 !important;
+
+  backdrop-filter: blur(34px) brightness(124%);
+}

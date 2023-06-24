@@ -1,0 +1,174 @@
+<div class="container">
+  <div class="mx-auto mt-lg-1 m-4">
+    <form
+      class="row py-4 mb-sm-3 block appearance-none text-gray-600 w-full bg-light border hover:border-gray-500 px-5 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline"
+    >
+      <select
+        class="col-lg-5 col-sm-12 m-1 block appearance-none px-5 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline"
+        [(ngModel)]="Category"
+        name="code"
+        (change)="modelChange($event)"
+      >
+        <option value="" disabled selected>Category</option>
+        <option *ngFor="let item of type" [value]="item">
+          {{ item }}
+          <!--Country-->
+        </option>
+      </select>
+      <select
+        class="col-lg-5 col-sm-12 m-1 block appearance-none text-gray-600 w-full bg-white border hover:border-gray-500 px-5 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline"
+        [(ngModel)]="City"
+        name="code"
+        (change)="modelChange2($event)"
+      >
+        <option value="" disabled selected>City</option>
+        <option *ngFor="let item of cities" [value]="item">
+          {{ item }}
+          <!--Country-->
+        </option>
+      </select>
+      <div class="col-lg-2 col-sm-12 m-1 px-5 py-3 pr-8">
+        <label for="bed-input">No Bed: </label>
+        <input
+          type="number"
+          id="bed-input"
+          name="bedInput"
+          placeholder="  2"
+          [(ngModel)]="NBed"
+        />
+      </div>
+      <div class="col-lg-2 col-sm-12 m-1 px-5 py-3 pr-8">
+        <label for="bath-input">No Bathroom: </label>
+        <input
+          type="number"
+          id="bath-input"
+          name="bathInput"
+          placeholder="  1"
+          [(ngModel)]="Nbath"
+        />
+      </div>
+      <div class="col-lg-2 col-sm-12 m-1 px-5 py-3 pr-8">
+        <label for="min-input">min Area: </label>
+        <input
+          type="number"
+          id="min-input"
+          name="minInput"
+          placeholder="  100 m2"
+          [(ngModel)]="minArea"
+        />
+      </div>
+      <div class="col-lg-2 col-sm-12 m-1 px-5 py-3 pr-8">
+        <label for="max-input">max Area: </label>
+        <input
+          type="number"
+          id="max-input"
+          name="maxInput"
+          placeholder="  100 m2"
+          [(ngModel)]="maxArea"
+        />
+      </div>
+      <div class="col-lg-4 col-sm-12 m-1 px-5 py-3 pr-8">
+        <label for="my-range-input">Range Price: </label>
+        <input
+          class="col m-1 block appearance-none"
+          type="range"
+          id="my-range-input"
+          name="myRangeInput"
+          min="0"
+          max="65000"
+          value="{{ price }}"
+          [(ngModel)]="price"
+        />
+        <label for="">{{ price }}</label>
+      </div>
+      <button
+        type="button"
+        class="col-lg-4 col-sm-12 m-1 btn btn-warning"
+        (click)="clickEvent($event)"
+      >
+        Search Property
+      </button>
+    </form>
+  </div>
+  <div class="my-3">
+    <div class="inner-container row">
+      <ng-container *ngFor="let item of filteredData; let i = index">
+        <div class="card m-1 col-4" style="width: 24rem">
+          <div class="type-compare-wish">
+            <span class="info">Sell</span>
+          </div>
+          <div class="wish-compare">
+            <section class="inner-compare-wish offset-10 col-2">
+              <span class="star col-6">
+                <i class="fa-regular fa-star" (click)="addToWishList(item)"></i>
+              </span>
+              <span class="col-6"><i class="fa-regular fa-plus"></i></span>
+            </section>
+          </div>
+          <div class="owner-info">
+            <section class="inner-info-owner">
+              <img [src]="item.OwnerPhoto" alt="" />
+              <div class="owner-name">
+                <h6>{{ item.OwnerFullName }}</h6>
+              </div>
+            </section>
+          </div>
+          <img class="card-img-top" [src]="item.Photo" alt="Card image cap" />
+
+          <div class="card-body">
+            <h5 class="card-title">
+              <span><i class="fa-sharp fa-solid fa-location-dot"></i></span>
+              <span class="title">{{ item.PropertyType }}</span>
+              <span>-</span>
+              <span class="title">{{ item.City }}</span>
+            </h5>
+            <div class="link-name">
+              <div class="left">
+                {{ item.Street }}
+              </div>
+            </div>
+            <p class="card-text">{{ item.Description }}</p>
+            <hr style="color: #555555" />
+            <div class="property-info">
+              <div class="property-price">
+                <span>{{ item.PropertyPrice | currency }}</span>
+              </div>
+              <div class="property-details">
+                <span>
+                  <span>
+                    <img
+                      src="../.../../../../../../assets/image/HomePage/noun-three-bedroom-apartment-1018118.svg"
+                      alt=""
+                      style="width: 25px; height: 25px"
+                    />
+                  </span>
+                  {{ item.Area }}
+                  m<sup>2</sup>
+                </span>
+                <span>
+                  <span>
+                    <img
+                      src="../../../../../assets/image/HomePage/noun-bed-671207.svg"
+                      style="width: 25px; height: 25px"
+                      alt=""
+                    />
+                  </span>
+                  {{ item.NoOfRooms }}
+                </span>
+                <span>
+                  <span
+                    ><img
+                      src="../../../../../assets/image/HomePage/noun-bath-2518784.svg"
+                      alt=""
+                      style="width: 25px; height: 25px"
+                  /></span>
+                  {{ item.NoOfBathroom }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

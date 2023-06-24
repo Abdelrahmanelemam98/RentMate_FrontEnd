@@ -1,0 +1,19 @@
+.row {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 100vw;
+}
+.header-content {
+  margin-top: 120px;
+  margin-bottom: 0%;
+}
+.paragraph-content {
+  margin-top: 120px;
+  margin-bottom: 0%;
+}
+.header-content h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+}

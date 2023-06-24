@@ -1,0 +1,26 @@
+.main-wrapper {
+  padding: 5rem 0;
+  width: 100%;
+  height: 100%;
+  background-color: #edf9f9;
+  background-image: url("../../../../../assets/image/HomePage/main-home-bg-img-new.png");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.inner h2 {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 45px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 600;
+}
+.inner span {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 400;
+}

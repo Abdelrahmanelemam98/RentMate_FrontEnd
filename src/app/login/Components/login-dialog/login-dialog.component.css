@@ -1,0 +1,53 @@
+.header-text h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 34px;
+  font-family: "Poppins", sans-serif;
+  /* padding: 4rem 0; */
+}
+.inner-form .input-email,
+.input-pass {
+  background-color: #fff;
+  color: #555;
+  font-family: "Poppins", sans-serif;
+  vertical-align: top;
+  font-weight: 400;
+  line-height: 26px;
+  width: 100%;
+  height: 40px;
+  margin: 0.5rem 0;
+  border: 1px solid #e8e8e8;
+  outline: none;
+  padding: 10px;
+}
+.btn-submit button {
+  margin: 10px 0;
+  width: 100%;
+  color: (0, 0, 0);
+  background-color: #ffcc41;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: middle;
+  font-weight: 500;
+  border: none;
+  padding: 1rem 0;
+}
+.restore {
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.register {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 700;
+}

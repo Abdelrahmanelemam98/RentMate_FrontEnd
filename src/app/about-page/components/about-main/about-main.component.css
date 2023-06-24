@@ -1,0 +1,31 @@
+.main-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+.inner-main {
+  background-image: url("../../../../assets/image/HomePage/About/about-us-title-img.jpg");
+  background-repeat: no-repeat;
+
+  background-size: auto;
+  border-radius: 10px;
+  background-position: center center;
+  height: 80vh;
+  position: relative;
+}
+.inner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.inner-content h2 {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 65px;
+  width: 100%;
+  line-height: 73px;
+  vertical-align: baseline;
+  font-weight: 500;
+}

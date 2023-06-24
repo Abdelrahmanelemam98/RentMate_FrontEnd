@@ -1,0 +1,38 @@
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-image: url("../../../../assets/image/HomePage/home-rev-img-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-top: 10rem;
+}
+.main {
+  height: 80vh;
+}
+.inner-main {
+  width: 100%;
+  height: 100%;
+  padding: 10rem 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+}
+.heading-inner {
+  color: #ffffff;
+}
+.heading-inner h2 {
+  line-height: 57px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  vertical-align: baseline;
+  font-size: 50px;
+}
+.heading-inner p {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  line-height: 25px;
+  vertical-align: baseline;
+  font-weight: 400;
+}
