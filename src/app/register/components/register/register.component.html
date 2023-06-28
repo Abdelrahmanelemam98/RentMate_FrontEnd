@@ -1,1 +1,169 @@
-<p>register works!</p>
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+  <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content style="width: 100%">
+  <header class="header-text text-center">
+    <h2>Register</h2>
+  </header>
+  <div class="inner-form">
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="First Name*"
+          class="input-first"
+          formControlName="firstName"
+          [class.is-invalid]="
+            getFirstName()?.invalid && getFirstName()?.touched
+          "
+        />
+        <div *ngIf="getFirstName()?.invalid && getFirstName()?.touched">
+          <small
+            *ngIf="getFirstName()?.errors?.['required']"
+            type="text"
+            class="text-danger"
+            formControlName="firstName"
+            >First Name required (No Numbers)</small
+          >
+          <small
+            *ngIf="getFirstName()?.errors?.['minlength'] || getFirstName()?.errors?.['pattern']"
+            type="text"
+            class="text-danger"
+            formControlName="firstName"
+            >First Name must be at least 3 Without Numbers</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Last Name*"
+          class="input-last"
+          formControlName=" lastName"
+          [class.is-invalid]="getLastName()?.invalid && getLastName()?.touched"
+        />
+        <div *ngIf="getLastName()?.invalid && getLastName()?.touched">
+          <small
+            *ngIf="getLastName()?.errors?.['required']"
+            type="text"
+            class="text-danger"
+            formControlName="lasttName"
+            >First Name required (No Numbers)</small
+          >
+          <small
+            *ngIf="getLastName()?.errors?.['minlength'] || getLastName()?.errors?.['pattern']"
+            type="text"
+            class="text-danger"
+            formControlName="lastName"
+            >First Name must be at least 3 Without Numbers</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Email*"
+          class="input-email"
+          formControlName="email"
+          [class.is-invalid]="getEamil()?.invalid && getEamil()?.touched"
+        />
+        <div *ngIf="getEamil()?.invalid && getEamil()?.touched">
+          <small
+            *ngIf="getEamil()?.errors?.['required']"
+            type="text"
+            class="text-danger"
+            formControlName="email"
+            >Email required</small
+          >
+          <small
+            *ngIf="getEamil()?.errors?.['pattern']"
+            type="text"
+            class="text-danger"
+            formControlName="email"
+            >Email Not Valid</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Address*"
+          class="input-address"
+          formControlName="address"
+          [class.is-invalid]="getAddress()?.invalid && getAddress()?.touched"
+        />
+        <div *ngIf="getAddress()?.invalid && getAddress()?.touched">
+          <div *ngIf="getAddress()?.invalid && getAddress()?.touched">
+            <small
+              *ngIf="getAddress()?.errors?.['required']"
+              type="text"
+              class="text-danger"
+              formControlName="address"
+              >Address required</small
+            >
+            <small
+              *ngIf="getAddress()?.errors?.['pattern']"
+              type="text"
+              class="text-danger"
+              formControlName="address"
+              >Address Not Valid</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Phone*"
+          class="input-phone"
+          formControlName="phone"
+          [class.is-invalid]="getPhone()?.invalid && getPhone()?.touched"
+        />
+        <div *ngIf="getPhone()?.invalid && getPhone()?.touched">
+          <div *ngIf="getPhone()?.invalid && getPhone()?.touched">
+            <small
+              *ngIf="getPhone()?.errors?.['required']"
+              type="text"
+              class="text-danger"
+              formControlName="phone"
+              >Phone required</small
+            >
+            <small
+              *ngIf="getPhone()?.errors?.['pattern']"
+              type="text"
+              class="text-danger"
+              formControlName="phone"
+              >Phone Not Valid</small
+            >
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password*"
+          class="input-pass"
+          formControlName="password"
+          [class.is-invalid]="getPassword()?.invalid && getPassword()?.touched"
+        />
+      </div>
+      <div class="privacy">
+        <p>
+          Your personal data will be used to support your experience throughout
+          this website, to manage access to your account, and for other purposes
+          described in our
+        </p>
+      </div>
+      <div class="btn-submit">
+        <button type="submit" (click)="display()">Register</button>
+      </div>
+      <div class="section-login">
+        <span
+          >Have an account
+          <span> <a (click)="openDialog()" matDialogClose>Log In</a> </span>
+        </span>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

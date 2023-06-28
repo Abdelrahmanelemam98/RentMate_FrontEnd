@@ -1,5 +1,7 @@
 import { style } from '@angular/animations';
 import { AfterViewChecked, Component } from '@angular/core';
+import { PropertyService } from '../../Services/property.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-property-home',
@@ -12,7 +14,11 @@ export class PropertyHomeComponent {
   compare: any[] = [];
   arrayIndex: any[] = [];
 
-  public constructor() {
+  public constructor(
+    private propertyServices: PropertyService,
+    private activeRouter: ActivatedRoute,
+    private router: Router
+  ) {
     this.property = [
       {
         id: '1',
@@ -116,6 +122,11 @@ export class PropertyHomeComponent {
         ownerName: 'Steve Parker',
       },
     ];
+  }
+  ngOnInit() {
+    this.propertyServices.getAllProperty().subscribe((data) => {
+      this.property = data.data;
+    });
   }
   addToWishList(data: any) {
     console.log(data);

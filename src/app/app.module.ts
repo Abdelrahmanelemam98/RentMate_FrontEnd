@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AboutPageModule } from './about-page/about-page.module';
 import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
 import { HomeModule } from './share/home/home.module';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { PackageModule } from './package/package.module';
     CoreModule,
     PropertyModule,
     PackageModule,
+    RegisterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
