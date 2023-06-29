@@ -1,0 +1,344 @@
+.mainwrapper {
+  width: 100%;
+  height: 100%;
+}
+.property-name h2 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 45px;
+  line-height: 50px;
+  font-weight: 500;
+  vertical-align: baseline;
+}
+.property-price h5 {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 33px;
+  line-height: 38px;
+  font-weight: 500;
+  text-align: end;
+  vertical-align: baseline;
+  padding-top: 12px;
+}
+.carousel-caption {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 150px 150px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+.desc,
+.property-feature {
+  width: 100%;
+}
+.desc h3 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 500;
+}
+.desc p {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 400;
+}
+.property-feature h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 500;
+}
+.property-feature p {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  vertical-align: baseline;
+  font-weight: 400;
+}
+.inner-property {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  justify-content: space-between;
+  padding: 8px 0;
+  width: 100%;
+}
+.property-details-title h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  vertical-align: baseline;
+  font-weight: 500;
+  padding: 10px 0;
+}
+.desc-property {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.type h6 {
+  font-weight: 600;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+}
+.video-section {
+  width: 100%;
+  padding-top: 42px;
+}
+.video-section h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 600;
+  margin-bottom: 48px;
+}
+.floor {
+  width: 100%;
+}
+.floor h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 600;
+}
+.floor p {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 400;
+}
+.img-floor {
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.img-floor img {
+  width: 100%;
+  height: 100%;
+}
+
+.loaction {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.loaction h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 500;
+}
+.loaction p span {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  line-height: 26px;
+  line-height: 26px;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+.profile-seller {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #edf9f9;
+}
+.seller-nama-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+.seller-img {
+  width: 50%;
+}
+.seller-img img {
+  border-radius: 5px;
+}
+.seller-desc {
+  width: 100%;
+}
+.seller-desc span {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+.seller-desc h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 500;
+  font-size: 26px;
+}
+.seller-desc h6 {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  line-height: 26px;
+  color: #555555;
+  font-weight: 400;
+}
+.office-phone {
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px;
+}
+.office-phone span {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 400;
+}
+.office-phone a {
+  text-decoration: none;
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  vertical-align: baseline;
+  font-weight: 400;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+.office-phone a:hover {
+  color: #fb8053;
+}
+.office {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-phone {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #e8e8e8;
+  transition: 0.4s ease-in-out;
+}
+.mobile-phone a {
+  cursor: pointer;
+}
+.mobile-phone a:hover {
+  color: #fb8053;
+}
+.whatsapp {
+  width: 100%;
+  padding: 10px;
+  transition: 0.4s ease-in-out;
+  border-bottom: 1px solid #e8e8e8;
+}
+.whatsapp a {
+  cursor: pointer;
+}
+.whatsapp a:hover {
+  color: #fb8053;
+}
+.email {
+  width: 100%;
+  padding: 10px;
+  transition: 0.4s ease-in-out;
+  border-bottom: 1px solid #e8e8e8;
+}
+.email a {
+  cursor: pointer;
+}
+.email a:hover {
+  color: #fb8053;
+}
+.profiles-seller {
+  width: 100%;
+  padding: 10px;
+}
+.profile-seller .btn {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.profile-seller .btn button {
+  width: 100%;
+  padding: 15px;
+  color: #000000;
+  background-color: #ffcc41;
+  border: 1px solid #ffcc41;
+}
+
+.schedule-section {
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #fbfbfb;
+  border: 1px solid #fbfbfb;
+  border-radius: 10px;
+}
+.schedule-title {
+  width: 100%;
+  padding: 10px;
+}
+.schedule-title h4 {
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  vertical-align: baseline;
+  font-weight: 500;
+  margin: 10px;
+}
+.schedule-title p {
+  color: #555555;
+  font-family: "Poppins", sans-serif;
+  line-height: 26px;
+  font-family: 15px;
+  font-weight: 400;
+  vertical-align: baseline;
+  margin: 10px;
+}
+.message-area {
+  width: 100%;
+  padding: 10px;
+}
+.message-area input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px;
+  border: none;
+}
+.message-area textarea {
+  width: 100%;
+  height: 100px;
+  padding: 8px;
+  margin: 10px;
+  border: none;
+}
+.message-area button {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ffcc41;
+  background-color: #ffcc41;
+  font-size: 18px;
+}

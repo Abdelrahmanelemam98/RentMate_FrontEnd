@@ -10,7 +10,7 @@ import { PropertyService } from '../../Services/property.service';
   styleUrls: ['./search-filter.component.css'],
 })
 export class SearchFilterComponent {
-  properties: Property[] = [];
+  properties: any = [];
   image: any = [];
   cities = Cities;
   type = TypeData;
@@ -18,7 +18,7 @@ export class SearchFilterComponent {
   City: string = '';
   ngOnInit() {}
   constructor(private myService: PropertyService) {
-    this.properties = myService.getAll();
+    // this.properties = myService.getAll();
     console.log(this.properties);
 
     this.image = [

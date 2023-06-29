@@ -6,10 +6,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PropertyService {
-  constructor(public http: HttpClient) {}
-  base = 'localhost:4200/property';
-
-  getAllProperty() {
-    return this.http.get<{ message: String; data: Property[] }>(this.base);
-  }
+  // constructor(public http: HttpClient) {}
+  // base = 'localhost:4200/property';
+  // getAllProperty() {
+  //   return this.http.get<{ message: String; data: Property[] }>(this.base);
+  // }
 }

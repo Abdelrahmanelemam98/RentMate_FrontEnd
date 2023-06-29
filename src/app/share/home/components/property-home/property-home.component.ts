@@ -123,11 +123,11 @@ export class PropertyHomeComponent {
       },
     ];
   }
-  ngOnInit() {
-    this.propertyServices.getAllProperty().subscribe((data) => {
-      this.property = data.data;
-    });
-  }
+  // ngOnInit() {
+  //   this.propertyServices.getAllProperty().subscribe((data) => {
+  //     this.property = data.data;
+  //   });
+  // }
   addToWishList(data: any) {
     console.log(data);
     if ('wish' in localStorage) {

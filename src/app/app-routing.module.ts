@@ -6,6 +6,7 @@ import { LoginComponent } from './login/Components/login/login.component';
 import { RegisterComponent } from './register/components/register/register.component';
 import { PropertyComponent } from './property/components/property/property.component';
 import { ContentComponent } from './package/components/content/content.component';
+import { PropertyDetailsComponent } from './property-details/components/property-details/property-details.component';
 
 const routes: Routes = [
   { path: '', component: PropertyHomeComponent, pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'package', component: ContentComponent },
   { path: 'property', component: PropertyComponent },
+  { path: 'details', component: PropertyDetailsComponent },
 ];
 
 @NgModule({
