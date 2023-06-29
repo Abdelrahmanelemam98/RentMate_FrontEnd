@@ -1,0 +1,63 @@
+.row {
+    padding: 0;
+    margin: 0;
+  }
+  .main-wrapper{
+    align-items: center;
+    
+
+
+  }
+.header-content{
+    background-color: rgb(246, 212, 45);
+    margin-top:10px ;
+   
+    margin-bottom: -31px ;
+   padding: 80px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-radius: 10px;
+ 
+
+  background-size: cover;
+}
+
+.title {
+    
+    padding: 20px ;
+    margin: 20px;
+   
+  }
+  .title span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color: white;
+   
+    
+  }
+  .header-icons{
+    margin: 1px auto;
+    width: 77vw;
+    border: 1px solid lightgrey;
+    background-color: white;
+  }
+  .icons{
+    align-items: center;
+    text-align: center;
+  }
+  .icons div p{
+    margin: 0;
+    font-weight: bold;
+  }
+  .icons div{
+    display: inline-block;
+    padding: 20px;
+  }
+  .icon-hover:hover{
+    
+    color: orange;
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.4s ease;
+  cursor: pointer;
+
+  }

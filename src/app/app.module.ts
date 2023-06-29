@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PropertyModule } from './property/property.module';
 import { PackageModule } from './package/package.module';
+import{UserDashboardModule} from './user-dashboard/user-dashboard.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -23,6 +24,7 @@ import { PackageModule } from './package/package.module';
     CoreModule,
     PropertyModule,
     PackageModule,
+    UserDashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

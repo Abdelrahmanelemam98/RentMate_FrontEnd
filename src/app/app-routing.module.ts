@@ -6,7 +6,14 @@ import { LoginComponent } from './login/Components/login/login.component';
 import { RegisterComponent } from './register/components/register/register.component';
 import { PropertyComponent } from './property/components/property/property.component';
 import { ContentComponent } from './package/components/content/content.component';
-
+import {StripeComponent} from './user-dashboard/components/stripe/stripe.component'
+import { AddPropertyComponent } from './user-dashboard/components/add-property/add-property.component';
+import { UserdashboardComponent } from './user-dashboard/components/userdashboard/userdashboard.component';
+import { ImagesComponent } from './user-dashboard/components/images/images.component';
+import { ProfileInfoComponent } from './user-dashboard/components/profile-info/profile-info.component';
+import { MypropertiesComponent } from './user-dashboard/components/myproperties/myproperties.component';
+import { WishlistComponent } from './user-dashboard/components/wishlist/wishlist.component';
+import { EditPropertyComponent } from './user-dashboard/components/edit-property/edit-property.component';
 const routes: Routes = [
   { path: '', component: PropertyHomeComponent, pathMatch: 'full' },
   { path: 'home', component: PropertyHomeComponent },
@@ -15,6 +22,26 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'package', component: ContentComponent },
   { path: 'property', component: PropertyComponent },
+  // { path: 'userdashboard/stripe', component: StripeComponent },
+  // { path: 'addproperty', component: AddPropertyComponent } ,
+  // { path: 'userdashboard', component: UserdashboardComponent },
+  { path: 'stripe', component: StripeComponent },
+  { path: 'image', component: ImagesComponent },
+  { path: 'editproperty', component: EditPropertyComponent },
+  {
+    path: 'userdashboard',
+    component: UserdashboardComponent,
+    children: [
+      { path: 'addproperty', component: AddPropertyComponent },
+      { path: 'profile', component: ProfileInfoComponent },
+      { path: 'myproperty', component: MypropertiesComponent },
+      { path: 'mywishlis', component: WishlistComponent }
+      // { path: 'addproperty', component: AddPropertyComponent },
+      // { path: 'profile', component: ProfileInfoComponent }
+    ]
+  },
+  { path: 'profile', component: ProfileInfoComponent },
+
 ];
 
 @NgModule({

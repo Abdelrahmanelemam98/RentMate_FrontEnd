@@ -2,53 +2,48 @@
   padding: 0;
   margin: 0;
 }
-.container {
-  width: 100vw;
-}
+
 
 .main-wrapper {
   text-align: center;
   align-items: center;
-  padding-right: 2rem;
+  
+  /* padding-right: 2rem; */
 }
-
 .card {
+  display: flex;
+  justify-content: space-between;
   background-color: whitesmoke;
   padding: 30px;
   border: 0.1px solid rgb(223, 219, 219);
   border-radius: 5px;
-  height: 500px;
+  /* height: 40rem; */
+  
   align-items: center;
   text-align: center;
+  height: 700px;
+  /* width: 400px;   /* Set the desired width 
+  height: 600px; */
   margin: 20px auto;
-  width: 100%;
+  /* width: 100%; */
 }
 .card button {
-  display: inline-block;
-
-  background-color: rgb(255, 190, 70);
   width: 200px;
-  padding: 17px;
-  border: none;
+}
+.card span{
+  font-size: 30px;
+  font-weight: bold;
+  padding: 20px;
 }
 .card button:hover {
   background-color: orange;
-}
-.card p {
-  padding: 7px;
 }
 
 b {
   font-weight: bold;
   font-size: 30px;
 }
-.type {
-  padding: 30px;
-}
-.paragraphs {
-  padding-top: 20px;
-  padding-bottom: 70px;
-}
+
 
 #card-plus {
   background-color: rgb(223, 243, 250);
@@ -61,3 +56,11 @@ b {
   margin-top: -29px;
   font-size: 20px;
 }
+
+/* button{
+  width: 700px; 
+  /* width: 300px;   /* Set the desired width for the div */
+  /* height: 200px;  */
+  /* margin-bottom: 7px ;
+  padding-bottom: 20px; 
+} */

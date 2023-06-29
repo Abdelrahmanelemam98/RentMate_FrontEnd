@@ -1,0 +1,101 @@
+<div class="main-wrapper">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-md-12 col-12">
+            <div class="header-content">
+                <span>Edit Property</span>
+    
+            
+            
+                <p>Here you can edit every part of the property. 
+                    Please note that fields marked with an asterisk 
+                    (*) have to be filled before you can apply changes.</p>
+
+            </div>
+                <div class="Property-info">
+                    <span class="info"
+                      >&#9432;<span class="Side-title">&nbsp;Property info</span></span
+                    >
+                    <hr />
+                  </div>
+        </div>
+        <div class="form-content">
+            <form [formGroup] = "editproperty" (ngSubmit)="savedata()">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Title:</label>
+                    <input type="text" class="form-control"  formControlName="title">
+                  </div>
+                
+                  <div class="col-md-6 col-12">
+                    
+                    <label class="form-label">Numbers Of Beds In The Room:</label>
+                    <input type="text" class="form-control"  formControlName="numbersofbedsintheroom">
+                  </div>
+                  <div
+                  *ngIf="
+                  editproperty.controls['numbersofbedsintheroom'].invalid &&
+                    (editproperty.controls['numbersofbedsintheroom'].dirty ||
+                    editproperty.controls['numbersofbedsintheroom'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="editproperty.controls['numbersofbedsintheroom'].errors?.['pattern']"
+                    >Numbers Of Beds In The Room must be number</small
+                  >
+                </div>
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Number Of Beds Per Apartment:</label>
+                    <input type="text" class="form-control" formControlName="numberofbedsperapartment">
+                  </div>
+                  <div
+                  *ngIf="
+                  editproperty.controls['numberofbedsperapartment'].invalid &&
+                    (editproperty.controls['numberofbedsperapartment'].dirty ||
+                    editproperty.controls['numberofbedsperapartment'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="editproperty.controls['numberofbedsperapartment'].errors?.['pattern']"
+                    >Number Of Beds Per Apartment must be number</small
+                  >
+                </div>
+
+
+
+
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Property description:</label>
+                    <textarea class="form-control" formControlName="propertydescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                  </div>
+                  
+                  
+                  
+                </div>
+                     
+                     
+                      <div class="button">
+                        <button  type="submit" class="btn btn-warning" routerLink="myproperty">Edit Property</button>
+                        <!-- <button type="submit" class="btn btn-warning">Next</button> -->
+                      </div>
+                      
+
+                     
+              </form>
+              
+
+        </div>
+        <app-myproperties *ngIf="showMyproperty"></app-myproperties>
+
+
+
+
+
+      </div>
+    </div>
+</div>

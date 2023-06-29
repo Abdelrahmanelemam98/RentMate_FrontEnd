@@ -1,0 +1,112 @@
+<div class="main-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="header-content">
+                <span>My Wishlist</span>
+    
+            
+            
+                <p>This page contains all the items you have added to your personal wishlist. 
+                    Add items to your wishlist by clicking the "heart" icon while logged in to your account.</p>
+
+                </div>
+        </div>
+        <div class="col-12">
+            <div class="inner-container">
+                <ng-container *ngFor="let item of property; let i = index">
+                  <div class="card row col-4" style="width: 24rem">
+                    <div class="type-compare-wish">
+                      <span class="info">Sell</span>
+                    </div>
+                    <div class="wish-compare">
+                      <section class="inner-compare-wish offset-10 col-2">
+                        <span class="star col-6">
+                            <i class="fa-solid fa-star"></i>
+                          <!-- <i class="fa-regular fa-star" (click)="addToWishList(item)"></i> -->
+                        </span>
+                        <span class="col-6"
+                          ><i
+                            class="fa-regular fa-plus"
+                            (click)="fliter(item.id)"
+                            (click)="addToCompare(item)"
+                          ></i
+                        ></span>
+                      </section>
+                    </div>
+                    <div class="owner-info">
+                      <section class="inner-info-owner">
+                        <img [src]="item.imgOwner" alt="" />
+                        <div class="owner-name">
+                          <h6>{{ item.ownerName }}</h6>
+                        </div>
+                      </section>
+                    </div>
+                    <img
+                      class="card-img-top"
+                      [src]="item.imgSourece"
+                      alt="Card image cap"
+                    />
+          
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <span><i class="fa-sharp fa-solid fa-location-dot"></i></span>
+                        <span class="title">{{ item.type }}</span>
+                        <span>-</span>
+                        <span class="title">{{ item.address }}</span>
+                      </h5>
+                      <div class="link-name">
+                        <div class="left">
+                          {{ item.buildingName }}
+                        </div>
+                      </div>
+                      <p class="card-text">{{ item.description }}</p>
+                      <hr style="color: #555555" />
+                      <div class="property-info">
+                        <div class="property-price">
+                          <span>{{ item.price | currency }}</span>
+                        </div>
+                        <div class="property-details">
+                          <span>
+                            <span>
+                              <img
+                                src="../.../../../../../../assets/image/HomePage/noun-three-bedroom-apartment-1018118.svg"
+                                alt=""
+                                style="width: 25px; height: 25px"
+                              />
+                            </span>
+                            {{ item.area }}
+                            m<sup>2</sup>
+                          </span>
+                          <span>
+                            <span>
+                              <img
+                                src="../../../../../assets/image/HomePage/noun-bed-671207.svg"
+                                style="width: 25px; height: 25px"
+                                alt=""
+                              />
+                            </span>
+                            {{ item.bedroom }}
+                          </span>
+                          <span>
+                            <span
+                              ><img
+                                src="../../../../../assets/image/HomePage/noun-bath-2518784.svg"
+                                alt=""
+                                style="width: 25px; height: 25px"
+                            /></span>
+                            {{ item.bathroom }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+
+        </div>
+        
+        
+      </div>
+    </div>
+</div>

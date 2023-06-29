@@ -1,0 +1,148 @@
+.row {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    width: 100vw;
+  }
+  
+  
+  .content{
+    text-align: center;
+    align-items: center;
+  }
+  .content span{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .Property-info{
+    margin: 60px auto;
+  }
+  .Property-info span{
+    margin: 60px auto;
+    
+  }
+  .info{
+    color: red;
+  }
+  .Side-title{
+    color: black;
+    font-size: 20px;
+  }
+
+
+
+
+  .Price-settings{
+    margin: 60px auto;
+  }
+  .Price-settings span{
+    margin: 60px auto;
+    
+  }
+  .info{
+    color: red;
+  }
+  .Side-title{
+    color: black;
+    font-size: 20px;
+  }
+
+
+select{
+    /* width: 500px; */
+    display: block;
+}
+.data span{
+    font-size: 20px;
+}
+#rent{
+  margin-top: 10px;
+}
+.services{
+  margin: 5px ;
+}
+.services div{
+  margin: 5px ;
+}
+.button{
+  align-items: center;
+  margin: 10px auto;
+  display: flex; 
+   justify-content: center;
+}
+.button button{
+  
+  
+  padding: 10px ;
+  margin-left: 30px;
+  width: 200px;
+}
+
+
+
+/*************************************/
+.row {
+  padding: 0;
+  margin: 0;
+}
+.main-wrapper{
+  align-items: center;
+  
+  margin-bottom:200px ;
+
+
+}
+.header-content{
+  background-color: rgb(246, 212, 45);
+  margin-top:10px ;
+ 
+  margin-bottom: -31px ;
+ padding: 80px;
+overflow-x: hidden;
+overflow-y: hidden;
+border-radius: 10px;
+
+
+background-size: cover;
+}
+
+.title {
+  
+  padding: 20px ;
+  margin: 20px;
+ 
+}
+.title span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 50px;
+  color: white;
+ 
+  
+}
+.header-icons{
+  margin: 1px auto;
+  width: 77vw;
+  border: 1px solid lightgrey;
+  background-color: white;
+}
+.icons{
+  align-items: center;
+  text-align: center;
+}
+.icons div p{
+  margin: 0;
+  font-weight: bold;
+}
+.icons div{
+  display: inline-block;
+  padding: 20px;
+}
+.icon-hover:hover{
+  
+  color: orange;
+transition: all 0.1s ease;
+-webkit-transition: all 0.4s ease;
+cursor: pointer;
+
+}

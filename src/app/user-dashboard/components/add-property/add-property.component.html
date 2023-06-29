@@ -1,0 +1,401 @@
+<div class="main-wrapper">
+  <div class="container">
+    <div class="row">
+      <!-- <app-userdashboard></app-userdashboard> -->
+      <!-- <div class="header-content" > 
+            
+        <div class="col-md-12 col-12">
+            <div class="title">
+            
+                <span>User Dashboard</span>
+        </div>
+            
+
+        </div>
+        
+
+    </div>
+    <div class="header-icons" >
+        <div class="col-lg-12">
+            <div class="icons">
+                <div class="icon-hover">
+                    <i class="fa-solid fa-user"></i>
+                    <p>My Profile</p>
+                </div>
+                <div class="icon-hover">
+                    <i class="fa-solid fa-gear"></i>
+                    <p>Edit Profile</p>
+                </div>
+                <div class="icon-hover">
+                    <i class="fa-solid fa-box"></i>
+                    <p>My Packages</p>
+                </div>
+                <div class="icon-hover">
+                    <i class="fa-solid fa-house"></i>
+                    <p>My Properties</p>
+                </div>
+                <div class="icon-hover" >
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    <p>Add Properties</p>
+                </div>
+                <div class="icon-hover">
+                    <i class="fa-solid fa-heart"></i>
+                    <p>My Wishlist</p>
+                </div>
+                <div class="icon-hover" (click)="redirectToStripeComponent()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <p>Log Out</p>
+                </div>
+                
+                
+
+            </div>
+           
+        </div>
+    </div> -->
+      <div class="col-lg-12 col-md-12 col-12">
+        <div class="content">
+          <span>Add New Property</span>
+          <p>
+            You can create new properties by filling out the fields below.
+            Please note that fields marked with an asterisk (*) have to be
+            filled before you can create your property.
+          </p>
+        </div>
+        <div class="Property-info">
+          <span class="info"
+            >&#9432;<span class="Side-title">&nbsp;Property info</span></span
+          >
+          <hr />
+        </div>
+        
+      </div>
+      
+
+        <div class="form-content">
+            <form [formGroup] = "addproperty" (ngSubmit)="savedata()">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Title:</label>
+                    <input type="text" class="form-control"  formControlName="title">
+                  </div>
+
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">PropertyType:</label>
+                    <select class="form-control form-control-lg" formControlName="type">
+                        <option selected >Choose...</option>
+                        <option value="1" >Room</option>
+                        <option value="2" >Bed</option>
+                        <option value="3" >Apartment</option>
+                      </select>
+                  </div>
+                   <div
+                  *ngIf="
+                  addproperty.controls['type'].invalid &&
+                    (addproperty.controls['type'].dirty ||
+                    addproperty.controls['type'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['type'].errors?.['required']"
+                    >type is required</small
+                  >
+                </div>
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Number Of Rooms:</label>
+                    <input type="text" class="form-control"  formControlName="numberofrooms" >
+                  </div>
+                  <div
+                  *ngIf="
+                  addproperty.controls['numberofrooms'].invalid &&
+                    (addproperty.controls['numberofrooms'].dirty ||
+                    addproperty.controls['numberofrooms'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numberofrooms'].errors?.['required']"
+                    >Number Of Rooms is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numberofrooms'].errors?.['pattern']"
+                    >Number Of Rooms must be number</small
+                  >
+                </div>
+                
+                  <div class="col-md-6 col-12">
+                    
+                    <label class="form-label">Numbers Of Beds In The Room:</label>
+                    <input type="text" class="form-control"  formControlName="numbersofbedsintheroom">
+                  </div>
+                  <div
+                  *ngIf="
+                  addproperty.controls['numbersofbedsintheroom'].invalid &&
+                    (addproperty.controls['numbersofbedsintheroom'].dirty ||
+                    addproperty.controls['numbersofbedsintheroom'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numbersofbedsintheroom'].errors?.['required']"
+                    >Numbers Of Beds In The Room is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numbersofbedsintheroom'].errors?.['pattern']"
+                    >Numbers Of Beds In The Room must be number</small
+                  >
+                </div>
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Number Of Beds Per Apartment:</label>
+                    <input type="text" class="form-control" formControlName="numberofbedsperapartment">
+                  </div>
+                  <div
+                  *ngIf="
+                  addproperty.controls['numberofbedsperapartment'].invalid &&
+                    (addproperty.controls['numberofbedsperapartment'].dirty ||
+                    addproperty.controls['numberofbedsperapartment'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numberofbedsperapartment'].errors?.['required']"
+                    >Number Of Beds Per Apartment is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['numberofbedsperapartment'].errors?.['pattern']"
+                    >Number Of Beds Per Apartment must be number</small
+                  >
+                </div>
+                  <div class="col-md-6 col-12" id="rent">
+                    <label class="form-label">Number Of Bathroom:&nbsp;&nbsp;&nbsp;</label>
+                    
+                    <input type="text" class="form-control" formControlName="NoOfBathroom">
+                     
+
+                  </div>
+                  <div
+                  *ngIf="
+                  addproperty.controls['NoOfBathroom'].invalid &&
+                    (addproperty.controls['NoOfBathroom'].dirty ||
+                    addproperty.controls['NoOfBathroom'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['NoOfBathroom'].errors?.['required']"
+                    >Number Of Bathroom is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['NoOfBathroom'].errors?.['pattern']"
+                    >Number Of Bathroom must be number</small
+                  >
+                </div>
+
+
+                <div class="col-md-6 col-12" id="rent">
+                  <label class="form-label">Appartment Area(m^2):&nbsp;&nbsp;&nbsp;</label>
+                  
+                  <input type="text" class="form-control" formControlName="AppartmentArea">
+                   
+
+                </div>
+                <div
+                *ngIf="
+                addproperty.controls['AppartmentArea'].invalid &&
+                  (addproperty.controls['AppartmentArea'].dirty ||
+                  addproperty.controls['AppartmentArea'].touched)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="addproperty.controls['AppartmentArea'].errors?.['required']"
+                  >Appartment Area is required</small
+                >
+                <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['AppartmentArea'].errors?.['pattern']"
+                    >Appartment Area must be number</small
+                  >
+              </div>
+
+
+
+
+                  <div class="col-md-6 col-12">
+                    <label class="form-label">Property description:</label>
+                    <textarea class="form-control" formControlName="propertydescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                  </div>
+                  <div
+                  *ngIf="
+                  addproperty.controls['propertydescription'].invalid &&
+                    (addproperty.controls['propertydescription'].dirty ||
+                    addproperty.controls['propertydescription'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['propertydescription'].errors?.['required']"
+                    >Property description is required</small
+                  >
+                  
+                  
+                </div>
+                <div class="Price-settings">
+                    <span class="info"
+                      ><i class="fa-solid fa-dollar-sign"></i><span class="Side-title">&nbsp;Price settings</span></span
+                    >
+                    <hr />
+                  </div>
+                  
+                    <div class="col-md-3 col-12">
+                      <label class="form-label">Price:</label>
+                      <input type="text" class="form-control" formControlName="price" >
+                    </div>
+                    <div
+                  *ngIf="
+                  addproperty.controls['price'].invalid &&
+                    (addproperty.controls['price'].dirty ||
+                    addproperty.controls['price'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['price'].errors?.['required']"
+                    >price is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="addproperty.controls['price'].errors?.['pattern']"
+                    >price must be number</small
+                  >
+                  
+                  
+                </div>
+                    <div class="Price-settings">
+                        <span class="info"
+                          ><i class="fa-sharp fa-solid fa-location-dot"></i> <span class="Side-title">&nbsp;Location Settings</span></span
+                        >
+                        <hr />
+                      </div>
+                      <div class="col-md-4 col-12">
+                        <label class="form-label">Governorate:</label>
+                        <select class="form-control form-control-lg" formControlName="governorate">
+                            <option selected>Choose...</option>
+                            <option value="1" >One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                      </div>
+                      <div
+                      *ngIf="
+                      addproperty.controls['governorate'].invalid &&
+                        (addproperty.controls['governorate'].dirty ||
+                        addproperty.controls['governorate'].touched)
+                      "
+                    >
+                      <small
+                        class="text-danger"
+                        *ngIf="addproperty.controls['governorate'].errors?.['required']"
+                        >governorate is required</small
+                      >
+                      
+                      
+                    </div>
+
+                      <div class="col-md-3 col-12">
+                        <label class="form-label">City:</label>
+                        <select class="form-control form-control-lg" formControlName="city">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                      </div>
+                      <div
+                      *ngIf="
+                      addproperty.controls['city'].invalid &&
+                        (addproperty.controls['city'].dirty ||
+                        addproperty.controls['city'].touched)
+                      "
+                    >
+                      <small
+                        class="text-danger"
+                        *ngIf="addproperty.controls['city'].errors?.['required']"
+                        >city is required</small
+                      >
+                      
+                      
+                    </div>
+                      <div class="col-md-3 col-12">
+                        <label class="form-label">Street:</label>
+                        <input type="text" class="form-control" formControlName="street" >
+                      </div>
+                      <div class="Price-settings">
+                        <span class="info"
+                          ><span class="Side-title">&nbsp;Services:</span></span
+                        >
+                        <hr />
+                      </div>
+                      <div class="services">
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasKitchen" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Kitchen </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasAirConditioner" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has AirConditioner </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasMicrowave" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Microwave</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasDishWasher" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has DishWasher </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasWifi" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Wifi </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasRefrigerator" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Refrigerator</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasDishesAndSilverware" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Dishes And Silverware </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasParking" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Parking </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasWaterHeater" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has WaterHeater</label>
+                        </div>
+                         
+                      </div>
+                     
+                      <div class="button">
+                        <button  type="submit" class="btn btn-warning" routerLink="stripe">Next</button>
+                        <!-- <button type="submit" class="btn btn-warning">Next</button> -->
+                      </div>
+                      
+
+                      </div>
+              </form>
+              
+
+        </div>
+
+       
+    
+    </div>
+  </div>
+</div>

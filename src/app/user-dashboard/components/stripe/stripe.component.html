@@ -1,0 +1,191 @@
+<div class="main-wrapper">
+    <div class="container">
+      <div class="row">
+
+        <div class="Price-settings">
+            <span class="info"
+              ><i class="fa-solid fa-money-bill"></i><span class="Side-title">&nbsp; &nbsp;Payment settings</span></span
+            >
+            <hr />
+        <div class="content">
+
+        
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" style="width: 500px;">
+   <div class="titlle"><span>Payment</span></div> 
+               <div class="label"><label>Full Name:</label></div> 
+    <mat-form-field>
+      <input matInput  formControlName="name">
+    </mat-form-field>
+    <div
+                  *ngIf="
+                  formGroup.controls['name'].invalid &&
+                    (formGroup.controls['name'].dirty ||
+                    formGroup.controls['name'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['name'].errors?.['required']"
+                    >name is required</small
+                  >
+                </div>
+                <div class="label"><label>Email:</label></div> 
+    <mat-form-field>
+      <input matInput type="email" placeholder="support@ngx-stripe.dev" formControlName="email">
+    </mat-form-field>
+    <div
+                  *ngIf="
+                  formGroup.controls['email'].invalid &&
+                    (formGroup.controls['email'].dirty ||
+                    formGroup.controls['email'].touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['email'].errors?.['required']"
+                    >email is required</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['email'].errors?.['email']"
+                    >email must me valid</small
+                  >
+                </div>
+                <div class="label"><label>Card Name:</label></div> 
+    <mat-form-field>
+        <input matInput  formControlName="creditcardname">
+      </mat-form-field>
+      <div
+      *ngIf="
+      formGroup.controls['creditcardname'].invalid &&
+        (formGroup.controls['creditcardname'].dirty ||
+        formGroup.controls['creditcardname'].touched)
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="formGroup.controls['creditcardname'].errors?.['required']"
+        >creditcardname is required</small
+      >
+    </div>
+    <div class="label"><label>Card Number:</label></div> 
+    <mat-form-field>
+      <input matInput placeholder="1234 1234 1234 1234" formControlName="cardnumber">
+    </mat-form-field>
+    <div
+      *ngIf="
+      formGroup.controls['cardnumber'].invalid &&
+        (formGroup.controls['cardnumber'].dirty ||
+        formGroup.controls['cardnumber'].touched)
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="formGroup.controls['cardnumber'].errors?.['required']"
+        >cardnumber is required</small
+      >
+      <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['cardnumber'].errors?.['pattern']"
+                    >cardnumber must be number</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['cardnumber'].errors?.['pattern']"
+                    >cardnumber must consists of 16 number</small
+                  >
+    
+ 
+    </div>
+    <div class="label"><label>Expiration Year:</label></div> 
+    <mat-form-field>
+        <input matInput placeholder="YY" formControlName="expirationyear">
+      </mat-form-field>
+      <div
+      *ngIf="
+      formGroup.controls['expirationyear'].invalid &&
+        (formGroup.controls['expirationyear'].dirty ||
+        formGroup.controls['expirationyear'].touched)
+      "
+    >
+      <small
+        class="text-danger"
+        *ngIf="formGroup.controls['expirationyear'].errors?.['required']"
+        >expirationyear is required</small
+      >
+      <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['expirationyear'].errors?.['pattern']"
+                    >expirationyear must be number</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['expirationyear'].errors?.['pattern']"
+                    >expirationyear must consists of 4 digits</small
+                  >
+    </div>
+    <div class="label"><label>Expiration Month:</label></div> 
+    <mat-form-field>
+      <input matInput placeholder="MM" formControlName="expirationmonth">
+    </mat-form-field>
+    <div
+    *ngIf="
+    formGroup.controls['expirationmonth'].invalid &&
+      (formGroup.controls['expirationmonth'].dirty ||
+      formGroup.controls['expirationmonth'].touched)
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="formGroup.controls['expirationmonth'].errors?.['required']"
+      >expirationmonth is required</small
+    >
+    <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['expirationmonth'].errors?.['pattern']"
+                    >expirationmonth must be number</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['expirationmonth'].errors?.['pattern']"
+                    >expirationmonth must consist of 2 digits</small
+                  >
+    
+  </div>
+  <div class="label"><label>CVC:</label></div> 
+    <mat-form-field>
+        <input matInput placeholder="CVC" formControlName="cvc">
+      </mat-form-field>
+      <div
+    *ngIf="
+    formGroup.controls['cvc'].invalid &&
+      (formGroup.controls['cvc'].dirty ||
+      formGroup.controls['cvc'].touched)
+    "
+  >
+    <small
+      class="text-danger"
+      *ngIf="formGroup.controls['cvc'].errors?.['required']"
+      >cvc is required</small
+    >
+    <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['cvc'].errors?.['pattern']"
+                    >cvc must be number</small
+                  >
+                  <small
+                    class="text-danger"
+                    *ngIf="formGroup.controls['cvc'].errors?.['pattern']"
+                    >cvc must consists of 3 digits</small
+                  >
+  </div>
+  
+    
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>
+      </div>
+    </div>
+</div>
+  

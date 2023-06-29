@@ -4,7 +4,7 @@ import { ContentComponent } from './components/content/content.component';
 import { PackageComponent } from './components/package/package.component';
 
 @NgModule({
-  declarations: [ContentComponent, PackageComponent],
+  declarations: [ContentComponent, PackageComponent, ],
   imports: [CommonModule],
 })
 export class PackageModule {}

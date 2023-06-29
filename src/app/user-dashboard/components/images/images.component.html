@@ -1,0 +1,48 @@
+<div class="main-wrapper">
+    <div class="container">
+      <div class="row">
+       
+        <div class="col-lg-12 col-md-12 col-12">
+            <div class="content">
+                <span>Add Property Images</span>
+          <p>
+            add the essence of your property like never before with our revolutionary image addition service. 
+            Attract potential buyers, renters,
+             or guests by showcasing stunning visuals that bring your property to life.
+          </p>
+          <div class="Property-info">
+            <span class="info"
+              ><i class="fa-regular fa-image"></i><span class="Side-title">&nbsp; &nbsp;Image gallery settings</span></span
+            >
+            <hr />
+          </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-12">
+            <div>
+                <ng-container *ngIf="!selectedImages.length">
+                    <p>Click here to upload image(s)</p>
+                  </ng-container>
+                <input type="file" (change)="onFilesSelected($event)" [disabled]="isRemoveClicked"  #fileInput accept=".jpg, .jpeg, .png" multiple>
+                <div (click)="fileInput.click()">
+                  
+                  <ng-container *ngFor="let image of selectedImages; let i = index">
+                    <div class="image-container">
+                      <img [src]="image" alt="Uploaded Image" class="uploaded-image">
+                      <button (click)="removeImage(i)" class="remove-button">Remove</button>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              
+              
+        </div>
+        <div class="buttons">
+          <button class="btn btn-warning" (click)="AddProperty()">Add Property</button>
+
+
+        </div>
+
+      </div>
+    </div>
+</div>
