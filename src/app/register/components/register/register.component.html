@@ -1,1 +1,135 @@
-<p>register works!</p>
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+  <mat-icon>close</mat-icon>
+</button>
+
+<mat-dialog-content style="width: 100%">
+  <header class="header-text text-center">
+    <h2>Register</h2>
+  </header>
+  <div class="inner-form">
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="First Name*"
+          class="input-first"
+          formControlName="firstName"
+          [class.is-invalid]="firstName?.invalid && firstName?.touched"
+        />
+        <div *ngIf="firstName?.invalid && firstName?.touched">
+          <small *ngIf="firstName?.errors?.['required']" class="text-danger">
+            First Name required (No Numbers)
+          </small>
+          <small
+            *ngIf="firstName?.errors?.['minlength'] || firstName?.errors?.['pattern']"
+            class="text-danger"
+          >
+            First Name must be at least 3 Without Numbers
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Last Name*"
+          class="input-last"
+          formControlName="lastName"
+          [class.is-invalid]="lastName?.invalid && lastName?.touched"
+        />
+        <div *ngIf="lastName?.invalid && lastName?.touched">
+          <small *ngIf="lastName?.errors?.['required']" class="text-danger">
+            Last Name required (No Numbers)
+          </small>
+          <small
+            *ngIf="lastName?.errors?.['minlength'] || lastName?.errors?.['pattern']"
+            class="text-danger"
+          >
+            Last Name must be at least 3 Without Numbers
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="Email*"
+          class="input-email"
+          formControlName="email"
+          [class.is-invalid]="email?.invalid && email?.touched"
+        />
+        <div *ngIf="email?.invalid && email?.touched">
+          <small *ngIf="email?.errors?.['required']" class="text-danger"
+            >Email required</small
+          >
+          <small *ngIf="email?.errors?.['email']" class="text-danger"
+            >Email Not Valid</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Phone*"
+          class="input-phone"
+          formControlName="phone"
+          [class.is-invalid]="phone?.invalid && phone?.touched"
+        />
+        <div *ngIf="phone?.invalid && phone?.touched">
+          <small *ngIf="phone?.errors?.['required']" class="text-danger"
+            >Phone required</small
+          >
+          <small *ngIf="phone?.errors?.['pattern']" class="text-danger"
+            >Phone Not Valid</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Address*"
+          class="input-address"
+          formControlName="address"
+          [class.is-invalid]="address?.invalid && address?.touched"
+        />
+        <div *ngIf="address?.invalid && address?.touched">
+          <small *ngIf="address?.errors?.['required']" class="text-danger"
+            >Address required</small
+          >
+          <small *ngIf="address?.errors?.['pattern']" class="text-danger">
+            Address Not Valid
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password*"
+          class="input-pass"
+          formControlName="password"
+          [class.is-invalid]="password?.invalid && password?.touched"
+        />
+        <div *ngIf="password?.invalid && password?.touched">
+          <small *ngIf="password?.errors?.['required']" class="text-danger"
+            >Password required</small
+          >
+          <small *ngIf="password?.errors?.['minlength']" class="text-danger">
+            Password must be at least 6 characters
+          </small>
+        </div>
+      </div>
+      <div class="privacy">
+        <p>
+          Your personal data will be used to support your experience throughout
+          this website, to manage access to your account, and for other purposes
+          described in our
+        </p>
+      </div>
+      <div class="btn-submit">
+        <button type="submit" (click)="display()">Register</button>
+      </div>
+      <div class="section-login">
+        <span>Have an account</span
+        ><a (click)="openDialog()" matDialogClose>Log In</a>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

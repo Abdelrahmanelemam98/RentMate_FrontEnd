@@ -76,7 +76,7 @@
       <p>
         <span>Not a member</span>
         <span
-          ><a [routerLink]="['register']" class="register"
+          ><a class="register" (click)="openDialog()" matDialogClose
             >? Register here</a
           ></span
         >

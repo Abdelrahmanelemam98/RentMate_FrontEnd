@@ -48,12 +48,22 @@
         </div>
         <div class="end col-md-4 col-12">
           <li class="nav-item">
-            <mat-dialog-actions>
-              <a class="nav-link" (click)="openDialog()">
-                <span><i class="fa-regular fa-user"></i></span>
-                JOIN US
-              </a>
-            </mat-dialog-actions>
+            <ng-container *ngIf="!isLoggedIn()">
+              <mat-dialog-actions>
+                <a class="nav-link" (click)="openDialog()">
+                  <span><i class="fa-regular fa-user"></i></span>
+                  JOIN US
+                </a>
+              </mat-dialog-actions>
+            </ng-container>
+            <ng-container *ngIf="isLoggedIn()">
+              <mat-dialog-actions>
+                <a class="nav-link" (click)="logout()">
+                  <span><i class="fa-regular fa-sign-out"></i></span>
+                  LOGOUT
+                </a>
+              </mat-dialog-actions>
+            </ng-container>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" routerLink="userdashboard">

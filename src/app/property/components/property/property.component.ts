@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./property.component.css'],
 })
 export class PropertyComponent {
-  properties: Property[] = [];
-  filteredData: Property[] = [
+  properties: any[] = [];
+  filteredData: any[] = [
     new Property(
       1,
       'Home',
@@ -64,12 +64,12 @@ export class PropertyComponent {
     private myService: PropertyService,
     private route: ActivatedRoute
   ) {
-    this.properties = myService.getAll();
-    console.log(this.properties);
-    // this.myService.getAll().subscribe(data=>{
-    //   this.properties=data;
-    //   this.filteredData=data;
-    // })
+    // this.properties = myService.getAllProperty();
+    // console.log(this.properties);
+    // this.myService.getAllProperty().subscribe((data) => {
+    //   this.properties = data;
+    //   this.filteredData = data;
+    // });
   }
 
   modelChange(event: any) {

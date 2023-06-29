@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { RouterModule, Routes } from '@angular/router';
-
+import { LoginModule } from '../login/login.module';
 @NgModule({
   declarations: [FooterComponent, HeaderComponent],
   imports: [
@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    LoginModule,
   ],
   exports: [FooterComponent, HeaderComponent],
 })
