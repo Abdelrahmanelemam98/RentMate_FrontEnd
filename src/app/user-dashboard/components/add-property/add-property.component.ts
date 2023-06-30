@@ -19,17 +19,17 @@ export class AddPropertyComponent implements OnInit {
  /* ownerId:number,
   public title:string ,
   public propertyType:number ,
-  public :number ,
-  public :number ,
-  public :string ,
-  public :number ,
-  public :number ,
-  public :number ,
-  public :number ,
+  public propertyPrice:number ,
+  public cityId:number ,
+  public streetDetails:string ,
+  public noOfBedsPerApartment:number ,
+  public noOfBedsInTheRoom:number ,
+  public noOfRooms:number ,
+  public noOfBathroom:number ,
   public appartmentArea:number ,
-  public :number ,
+  public floorNumber:number ,
   public hasKitchen: boolean,
-  public : boolean,
+  public hasAirConditioner: boolean,
   public hasMicrowave: boolean,
   public hasDishWasher: boolean,
   public hasWifi: boolean,
@@ -151,7 +151,7 @@ mapProperties() {
     this.addservices.getCityById(selectedGovernorateId).subscribe(data=>{
       
       this.allCities=data;
-      console.log(this.allCities);
+      // console.log(this.allCities);
 
     })
       // this.allCities = this.addservices.getCityById(govId);
