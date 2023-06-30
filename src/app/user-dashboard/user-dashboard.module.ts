@@ -11,13 +11,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ImagesComponent } from './components/images/images.component';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MypropertiesComponent } from './components/myproperties/myproperties.component';
 import { EditPropertyComponent } from './components/edit-property/edit-property.component';
+import { UserComponent } from './user.component';
+
 
 
 
@@ -32,7 +34,9 @@ import { EditPropertyComponent } from './components/edit-property/edit-property.
     ProfileInfoComponent,
     WishlistComponent,
     MypropertiesComponent,
-    EditPropertyComponent
+    EditPropertyComponent,
+    UserComponent,
+   
   ],
   imports: [
     
@@ -45,20 +49,24 @@ import { EditPropertyComponent } from './components/edit-property/edit-property.
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
-    FormsModule,
-    BrowserModule
+    FormsModule
   ],
   exports:[
     AddPropertyComponent,
     StripeComponent,
     ImagesComponent,
-    UserdashboardComponent,
+    // UserdashboardComponent,
     ProfileInfoComponent,
     RouterModule,
     WishlistComponent,
     MypropertiesComponent,
-    EditPropertyComponent
+    EditPropertyComponent,
+    UserComponent,
+
     
+  ],
+  bootstrap:[
+    UserComponent,
   ]
 })
 export class UserDashboardModule { }

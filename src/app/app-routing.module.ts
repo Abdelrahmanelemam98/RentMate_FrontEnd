@@ -16,6 +16,7 @@ import { ProfileInfoComponent } from './user-dashboard/components/profile-info/p
 import { MypropertiesComponent } from './user-dashboard/components/myproperties/myproperties.component';
 import { WishlistComponent } from './user-dashboard/components/wishlist/wishlist.component';
 import { EditPropertyComponent } from './user-dashboard/components/edit-property/edit-property.component';
+import { UserComponent } from './user-dashboard/user.component';
 const routes: Routes = [
   { path: '', component: PropertyHomeComponent, pathMatch: 'full' },
   { path: 'home', component: PropertyHomeComponent },
@@ -24,22 +25,33 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'details', component: PropertyDetailsComponent },
   { path: 'package', component: ContentComponent },
-  { path: 'stripe', component: StripeComponent },
+  // { path: 'stripe', component: StripeComponent },
   { path: 'property', component: PropertyComponent },
-  { path: 'stripe', component: StripeComponent },
-  { path: 'image', component: ImagesComponent },
-  { path: 'editproperty', component: EditPropertyComponent },
-  {
-    path: 'userdashboard',
-    component: UserdashboardComponent,
-    children: [
-      { path: 'addproperty', component: AddPropertyComponent },
-      { path: 'profile', component: ProfileInfoComponent },
-      { path: 'myproperty', component: MypropertiesComponent },
-      { path: 'mywishlis', component: WishlistComponent },
-    ],
-  },
-  { path: 'profile', component: ProfileInfoComponent },
+  // { path: 'stripe', component: StripeComponent },
+  { path: 'userdashboard/addproperty/image', component: ImagesComponent },
+  { path: 'userdashboard/editproperty', component: EditPropertyComponent },
+  { path: 'userdashboard', component: UserComponent },
+  { path: 'userdashboard/addproperty', component: AddPropertyComponent },
+      { path: 'userdashboard/profile', component: ProfileInfoComponent },
+      { path: 'userdashboard/myproperty', component: MypropertiesComponent },
+      { path: 'userdashboard/mywishlis', component: WishlistComponent },
+      { path: 'userdashboard/addproperty/stripe', component: StripeComponent },
+  // {
+  //   path: 'userdashboard',
+  //   component: UserComponent,
+  //   children: [
+  //     { path: 'addproperty', component: AddPropertyComponent },
+  //     { path: 'profile', component: ProfileInfoComponent },
+  //     { path: 'myproperty', component: MypropertiesComponent },
+  //     { path: 'mywishlis', component: WishlistComponent },
+  //     { path: 'stripe', component: StripeComponent },
+  //   ],
+  // },
+  // { path: 'profile', component: ProfileInfoComponent },
+  // {path:"userdashboard" , loadChildren:()=>import("./user-dashboard/user-dashboard.module")
+  //                   .then(module=>module.UserDashboardModule) },
+
+  //  { path: 'userdashboard', loadChildren: () => import('./user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule) },
 ];
 
 @NgModule({
