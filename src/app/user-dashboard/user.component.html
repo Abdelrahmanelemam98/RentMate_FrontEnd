@@ -1,4 +1,4 @@
-<!-- <div class="main-wrapper">
+<div class="main-wrapper">
     <div class="container">
       <div class="row">
         <div class="header-content" > 
@@ -17,28 +17,28 @@
         <div class="header-icons" >
             <div class="col-lg-12">
                 <div class="icons">
-                    <div class="icon-hover" (click)="redirectToProfileInfoComponent()">
+                    <div class="icon-hover" routerLink="/userdashboard/profile">
                         <i class="fa-solid fa-user"></i>
                         <p>My Profile</p>
                     </div>
-                    <div class="icon-hover">
-                        <i class="fa-solid fa-gear"></i>
+                    <div class="icon-hover" >
+                        <i class="fa-solid fa-gear" ></i>
                         <p>Edit Profile</p>
                     </div>
                     
-                    <div class="icon-hover" (click)="redirectToMyPropertyInfoComponent()">
+                    <div class="icon-hover" routerLink="/userdashboard/myproperty" >
                         <i class="fa-solid fa-house"></i>
                         <p>My Properties</p>
                     </div>
-                    <div class="icon-hover" (click)="redirectToAddPropertyComponent()">
+                    <div class="icon-hover" routerLink="/userdashboard/addproperty">
                         <i class="fa-solid fa-file-circle-plus"></i>
                         <p>Add Properties</p>
                     </div>
-                    <div class="icon-hover" (click)="redirectToMyWishListInfoComponent()">
+                    <div class="icon-hover"  routerLink="/userdashboard/mywishlis">
                         <i class="fa-solid fa-heart"></i>
                         <p>My Wishlist</p>
                     </div>
-                     (click)="redirectToStripeComponent()" 
+                    <!-- (click)="redirectToStripeComponent()" -->
                     <div class="icon-hover" >
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <p>Log Out</p>
@@ -50,12 +50,13 @@
                
             </div>
         </div>
-        <app-add-property *ngIf="showAddproperty"></app-add-property>
+        <!-- <app-add-property *ngIf="showAddproperty"></app-add-property>
         <app-profile-info *ngIf="showProfile"></app-profile-info>
         <app-myproperties *ngIf="showMyproperty"></app-myproperties>
-        <app-wishlist *ngIf="showMywishlist"></app-wishlist>
+        <app-wishlist *ngIf="showMywishlist"></app-wishlist> -->
+        <router-outlet></router-outlet>
         
       </div>
     </div>
 </div>
- -->
+

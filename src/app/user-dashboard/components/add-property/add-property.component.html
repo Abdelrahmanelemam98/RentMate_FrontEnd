@@ -1,6 +1,7 @@
 <div class="main-wrapper">
   <div class="container">
     <div class="row">
+      <app-user></app-user>
       <!-- <app-userdashboard></app-userdashboard> -->
       <!-- <div class="header-content" > 
             
@@ -84,9 +85,9 @@
                     <label class="form-label">PropertyType:</label>
                     <select class="form-control form-control-lg" formControlName="type">
                         <option selected >Choose...</option>
-                        <option value="1" >Room</option>
-                        <option value="2" >Bed</option>
-                        <option value="3" >Apartment</option>
+                        <option value="1" >Apartment</option>
+                        <option value="2" >Room</option>
+                        <option value="3" >Bed</option>
                       </select>
                   </div>
                    <div
@@ -222,6 +223,31 @@
                     >Appartment Area must be number</small
                   >
               </div>
+              <div class="col-md-6 col-12" id="rent">
+                <label class="form-label">Floor Number:&nbsp;&nbsp;&nbsp;</label>
+                
+                <input type="text" class="form-control" formControlName="floornumbeer">
+                 
+
+              </div>
+              <div
+              *ngIf="
+              addproperty.controls['floornumbeer'].invalid &&
+                (addproperty.controls['floornumbeer'].dirty ||
+                addproperty.controls['floornumbeer'].touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="addproperty.controls['floornumbeer'].errors?.['required']"
+                >Floor Numbeer is required</small
+              >
+              <small
+                  class="text-danger"
+                  *ngIf="addproperty.controls['floornumbeer'].errors?.['pattern']"
+                  >Floor Numbeer must be number</small
+                >
+            </div>
 
 
 
@@ -285,7 +311,7 @@
                       </div>
                       <div class="col-md-4 col-12">
                         <label class="form-label">Governorate:</label>
-                        <select class="form-control form-control-lg" formControlName="governorate">
+                        <select (change)="getCityByGovernorate()" class="form-control form-control-lg" formControlName="governorate">
                             <option selected>Choose...</option>
                             <option value="1" >Cairo</option>
                             <option value="2">Giza</option>
@@ -334,11 +360,17 @@
 
                       <div class="col-md-3 col-12">
                         <label class="form-label">City:</label>
-                        <select class="form-control form-control-lg" formControlName="city">
-                            <option selected>Choose...</option>
-                            <option value="1">One</option>
+                        <select   class="form-control form-control-lg" formControlName="city">
+                          <ng-container *ngFor = "let item of allCities">
+                           
+                            
+                            <option value="{{item.cityId}}"  >
+                              {{item.cityName}} 
+                          </option>
+                        </ng-container>
+                            <!-- <option value="1">One</option>
                             <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="3">Three</option> -->
                           </select>
                       </div>
                       <div
@@ -403,12 +435,16 @@
                           <input class="form-check-input" formControlName="hasWaterHeater" type="checkbox" id="check1" name="option1" value="something" >
                           <label class="form-check-label">Has WaterHeater</label>
                         </div>
+                        <div class="form-check">
+                          <input class="form-check-input" formControlName="hasElevator" type="checkbox" id="check1" name="option1" value="something" >
+                          <label class="form-check-label">Has Elevator</label>
+                        </div>
                          
                       </div>
                      
                       <div class="button">
-                        <button  type="submit" class="btn btn-warning" routerLink="stripe">Next</button>
-                        <!-- <button type="submit" class="btn btn-warning">Next</button> -->
+                        <!-- <a class=""  type="submit" class="btn btn-warning"  (Click)="savedata()">Next</a> -->
+                        <button type="submit" class="btn btn-warning">Next</button>
                       </div>
                       
 
