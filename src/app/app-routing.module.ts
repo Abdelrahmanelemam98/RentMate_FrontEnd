@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'about', component: AboutMainComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'details', component: PropertyDetailsComponent },
+  { path: 'details/:id', component: PropertyDetailsComponent },
   { path: 'package', component: ContentComponent },
   { path: 'stripe', component: StripeComponent },
   { path: 'property', component: PropertyComponent },
