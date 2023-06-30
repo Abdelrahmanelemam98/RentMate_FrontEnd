@@ -12,6 +12,7 @@ import { SearchFilterComponent } from './components/search-filter/search-filter.
 import { ArticleComponent } from './components/article/article.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { EnquiryComponent } from './components/enquiry/enquiry.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EnquiryComponent } from './components/enquiry/enquiry.component';
     EnquiryComponent,
   ],
   imports: [
+    RouterModule,
     CommonModule,
     CarouselModule,
     HammerModule,

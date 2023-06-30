@@ -1,20 +1,27 @@
-export class Property {
-  constructor(
-    public _id: Number,
-    public Title: String,
-    public PropertyType: string,
-    public Description: String,
-    public PropertyPrice: number,
-    public NoOfRooms: number,
-    public NoOfBathroom: number,
-    public Area: number,
-    public Photo: Array<String>,
-    public City: String,
-    public Governorate: String,
-    public Street: String,
-    public IsRented: boolean,
-    public AverageRating: Number,
-    public OwnerFullName: String,
-    public OwnerPhoto: String
-  ) {}
+export enum PropertyType {
+  Apartment = 1,
+  Room = 2,
+  Bed = 3
+}
+
+export interface Property {
+  type: string;
+  nBed: number;
+  nBath: number;
+  area: number;
+  price: number;
+  id: number;
+  title: string;
+  propertyType: PropertyType;
+  propertyPrice: number;
+  mainPhotoUrl: string;
+  noOfRooms: number;
+  noOfBathroom: number;
+  appartmentArea: number;
+  governorate: string;
+  city: string;
+  streetDetails: string;
+  averageRating: number;
+  ownerPhoto: string;
+  ownerFullName: string;
 }

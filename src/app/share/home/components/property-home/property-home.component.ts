@@ -2,6 +2,9 @@ import { style } from '@angular/animations';
 import { AfterViewChecked, Component } from '@angular/core';
 import { PropertyService } from '../../Services/property.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Property } from '../../Models/property';
+import { TypeData } from '../../Models/type-enums';
+import { Cities } from '../../Models/cties';
 
 @Component({
   selector: 'app-property-home',
@@ -9,154 +12,68 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrls: ['./property-home.component.css'],
 })
 export class PropertyHomeComponent {
-  property: any[] = [];
-  wish: any[] = [];
-  compare: any[] = [];
-  arrayIndex: any[] = [];
+  properties: Property[] = [];
+  filteredData: Property[] = [];
+  type: string[] = Object.values(TypeData);
+  cities: string[] = Object.values(Cities);
+  Category: string = '';
+  City: string = '';
+  NBed: number = 0;
+  Nbath: number = 0;
+  minArea: number = 0;
+  maxArea: number = 0;
+  price: number = 0;
 
-  public constructor(
-    private propertyServices: PropertyService,
-    private activeRouter: ActivatedRoute,
-    private router: Router
-  ) {
-    this.property = [
-      {
-        id: '1',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/HomePagemain-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-        ownerName: 'Steve Parker',
-      },
-      {
-        id: '2',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/main-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-        ownerName: 'Steve Parker',
-      },
-      {
-        id: '3',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/main-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-        ownerName: 'Steve Parker',
-      },
-      {
-        id: '4',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/main-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-      },
-      {
-        id: '5',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/HomePagemain-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-        ownerName: 'Steve Parker',
-      },
-      {
-        id: '6',
-        type: 'villas',
-        address: 'brookly',
-        buildingName: 'South Sun House',
-        description:
-          'Lorem ipsum dolor sit amet, wisi nemore fastidii at vis, eos equidem admodum',
-        price: '265000',
-        area: '290',
-        bedroom: '4',
-        bathroom: '3',
-        imgSourece:
-          '../../../../../assets/image/HomePage/HomePagemain-home-property-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house03-460x300.jpg,../../../../../assets/image/HomePage/south-sun-house02-460x300.jpg',
-        imgOwner:
-          '../../../../../assets/image/HomePage/agent1-profile-img-new-50x50.jpg',
-        ownerName: 'Steve Parker',
-      },
-    ];
+  constructor(private propertyService: PropertyService) { }
+  governments: string[] = [
+    'Cairo', 'Giza', 'Alexandria', 'Dakahlia', 'Red Sea', 'Beheira', 'Fayoum',
+    'Gharbiya', 'Ismailia', 'Menofia', 'Minya', 'Qaliubiya', 'New Valley', 'Suez',
+    'Aswan', 'Assiut', 'Beni Suef', 'Port Said', 'Damietta', 'Sharkia', 'South Sinai',
+    'Kafr Al sheikh', 'Matrouh', 'Luxor', 'Qena', 'North Sinai', 'Sohag'
+  ];
+
+  ngOnInit(): void {
+    this.propertyService.getAllPropertiesLimit(6).subscribe(properties => {
+      this.properties = properties.slice(0,6);
+      this.filteredData = properties;
+    });
   }
-  // ngOnInit() {
-  //   this.propertyServices.getAllProperty().subscribe((data) => {
-  //     this.property = data.data;
-  //   });
-  // }
-  addToWishList(data: any) {
-    console.log(data);
-    if ('wish' in localStorage) {
-      this.wish = JSON.parse(localStorage.getItem('wish')!);
-      this.wish.push(data);
-      localStorage.setItem('wish', JSON.stringify(this.wish));
-    } else {
-      this.wish.push(data);
-      localStorage.setItem('wish', JSON.stringify(this.wish));
+
+  modelChange(event: any) {
+    this.Category = event.target.value;
+  }
+
+  modelChange2(event: any) {
+    this.City = event.target.value;
+  }
+
+  clickEvent(event: any) {
+    this.filteredData = this.properties;
+    if (this.Category != '') {
+      this.filteredData = this.filteredData.filter(data => data.type == this.Category);
+    }
+    if (this.City != '') {
+      this.filteredData = this.filteredData.filter(data => data.city == this.City);
+    }
+    if (this.NBed != 0) {
+      this.filteredData = this.filteredData.filter(data => data.nBed == this.NBed);
+    }
+    if (this.Nbath != 0) {
+      this.filteredData = this.filteredData.filter(data => data.nBath == this.Nbath);
+    }
+    if (this.minArea != 0) {
+      this.filteredData = this.filteredData.filter(data => data.area >= this.minArea);
+    }
+    if (this.maxArea != 0) {
+      this.filteredData = this.filteredData.filter(data => data.area <= this.maxArea);
+    }
+    if (this.price != 0) {
+      this.filteredData = this.filteredData.filter(data => data.price <= this.price);
     }
   }
 
-  addToCompare(data: any) {
-    if ('compare' in sessionStorage) {
-      this.compare = JSON.parse(sessionStorage.getItem('compare')!);
-      this.compare.push(data);
-      sessionStorage.setItem('compare', JSON.stringify(this.compare));
-    } else {
-      this.compare.push(data);
-      sessionStorage.setItem('compare', JSON.stringify(this.compare));
-    }
+  addToWishList(item: Property) {
+    console.log(item);
   }
-  filterIndex(id: any) {
-    if (this.compare.filter((z) => z == id).length == 0) {
-      console.log(this.compare);
-      return true;
-    }
-    return false;
-  }
-  fliter(id: any) {}
   // slide Owl
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { PropertyService } from 'src/app/share/home/Services/property.service';
-import { Property } from 'src/app/share/home/Models/property';
+import { Property, PropertyType } from 'src/app/share/home/Models/property';
+
 import { TypeData } from 'src/app/share/home/Models/type-enums';
 import { Cities } from 'src/app/share/home/Models/cties';
 import { ActivatedRoute } from '@angular/router';
@@ -10,66 +11,26 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './property.component.html',
   styleUrls: ['./property.component.css'],
 })
-export class PropertyComponent {
-  properties: any[] = [];
-  filteredData: any[] = [
-    new Property(
-      1,
-      'Home',
-      'Bed',
-      'Big Home',
-      100,
-      1,
-      1,
-      200,
-      ['photo'],
-      'Suez',
-      'bla',
-      'fnar',
-      true,
-      12,
-      'Ethar ',
-      'image'
-    ),
-  ];
-  cities = Cities;
-  type = TypeData;
-  Category: string = TypeData[0];
+export class PropertyComponent implements OnInit {
+  properties: Property[] = [];
+  filteredData: Property[] = [];
+  type: string[] = Object.values(TypeData);
+  cities: string[] = Object.values(Cities);
+  Category: string = '';
   City: string = '';
-  price = 5000;
-  NBed = '';
-  Nbath = '';
-  minArea = '';
-  maxArea = '';
+  NBed: number = 0;
+  Nbath: number = 0;
+  minArea: number = 0;
+  maxArea: number = 0;
+  price: number = 0;
 
-  wish: any[] = [];
-  compare: any[] = [];
+  constructor(private propertyService: PropertyService) { }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      this.City = params['city'];
-      this.Category = params['category'];
-      console.log(params);
-      console.log(this.Category);
-      this.filteredData = this.properties.filter(
-        (item) =>
-          item.City.includes(this.City) &&
-          item.PropertyType.toString() == this.Category.toString()
-      );
-      console.log(this.properties);
-      console.log(this.filteredData);
+  ngOnInit(): void {
+    this.propertyService.getAllProperties().subscribe(properties => {
+      this.properties = properties;
+      this.filteredData = properties;
     });
-  }
-  constructor(
-    private myService: PropertyService,
-    private route: ActivatedRoute
-  ) {
-    // this.properties = myService.getAllProperty();
-    // console.log(this.properties);
-    // this.myService.getAllProperty().subscribe((data) => {
-    //   this.properties = data;
-    //   this.filteredData = data;
-    // });
   }
 
   modelChange(event: any) {
@@ -79,33 +40,34 @@ export class PropertyComponent {
   modelChange2(event: any) {
     this.City = event.target.value;
   }
+
   clickEvent(event: any) {
-    console.log(this.City);
-    console.log(this.Category);
-    if (this.City != '' && this.Category != '') {
-      this.filteredData = this.properties.filter(
-        (item) =>
-          item.City.includes(this.City) &&
-          item.PropertyType.toString() == this.Category.toString() &&
-          item.NoOfBathroom <= parseInt(this.Nbath) &&
-          item.NoOfRooms <= parseInt(this.NBed) &&
-          item.Area <= parseInt(this.maxArea) &&
-          item.Area >= parseInt(this.minArea) &&
-          item.PropertyPrice <= this.price
-      );
-      console.log(this.filteredData);
-      console.log(this.City.toString());
+    this.filteredData = this.properties;
+    if (this.Category != '') {
+      this.filteredData = this.filteredData.filter(data => data.type == this.Category);
+    }
+    if (this.City != '') {
+      this.filteredData = this.filteredData.filter(data => data.city == this.City);
+    }
+    if (this.NBed != 0) {
+      this.filteredData = this.filteredData.filter(data => data.nBed == this.NBed);
+    }
+    if (this.Nbath != 0) {
+      this.filteredData = this.filteredData.filter(data => data.nBath == this.Nbath);
+    }
+    if (this.minArea != 0) {
+      this.filteredData = this.filteredData.filter(data => data.area >= this.minArea);
+    }
+    if (this.maxArea != 0) {
+      this.filteredData = this.filteredData.filter(data => data.area <= this.maxArea);
+    }
+    if (this.price != 0) {
+      this.filteredData = this.filteredData.filter(data => data.price <= this.price);
     }
   }
-  addToWishList(data: any) {
-    console.log(data);
-    if ('wish' in localStorage) {
-      this.wish = JSON.parse(localStorage.getItem('wish')!);
-      this.wish.push(data);
-      localStorage.setItem('wish', JSON.stringify(this.wish));
-    } else {
-      this.wish.push(data);
-      localStorage.setItem('wish', JSON.stringify(this.wish));
-    }
+
+  addToWishList(item: Property) {
+    console.log(item);
   }
+
 }
