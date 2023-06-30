@@ -67,18 +67,73 @@ export class AddPropertyComponent implements OnInit {
    
   }
 
+  addproperty2: any = {};
+
+mapProperties() {
+  this.addproperty2.ownerId = "1";
+  this.addproperty2.title = this.addproperty.value.title;
+  this.addproperty2.propertyType = this.addproperty.value.type;
+  this.addproperty2.propertyPrice = this.addproperty.value.price;
+  this.addproperty2.cityId = this.addproperty.value.city;
+  this.addproperty2.streetDetails = this.addproperty.value.street;
+  this.addproperty2.description = this.addproperty.value.propertydescription;
+  this.addproperty2.noOfBedsPerApartment = this.addproperty.value.numberofbedsperapartment;
+  this.addproperty2.noOfBedsInTheRoom = this.addproperty.value.numbersofbedsintheroom;
+  this.addproperty2.noOfRooms = this.addproperty.value.numberofrooms;
+  this.addproperty2.noOfBathroom = this.addproperty.value.NoOfBathroom;
+  this.addproperty2.appartmentArea = this.addproperty.value.AppartmentArea;
+  this.addproperty2.floorNumber = this.addproperty.value.floornumbeer;
+  this.addproperty2.hasKitchen = this.addproperty.value.hasKitchen;
+  this.addproperty2.hasAirConditioner = this.addproperty.value.hasAirConditioner;
+  this.addproperty2.hasMicrowave = this.addproperty.value.hasMicrowave;
+  this.addproperty2.hasDishWasher = this.addproperty.value.hasDishWasher;
+  this.addproperty2.hasWifi = this.addproperty.value.hasWifi;
+  this.addproperty2.hasRefrigerator = this.addproperty.value.hasRefrigerator;
+  this.addproperty2.hasDishesAndSilverware = this.addproperty.value.hasDishesAndSilverware;
+  this.addproperty2.hasParking = this.addproperty.value.hasParking;
+  this.addproperty2.hasWaterHeater = this.addproperty.value.hasWaterHeater;
+  this.addproperty2.hasElivator = this.addproperty.value.hasElevator;
+}
+
   savedata() {
+
     if (this.addproperty.valid) {
-      // Save data to local storage
-      // ...
-      console.log("data saved");
-     localStorage.setItem('formdata', JSON.stringify(this.addproperty.value));
+        // Save data to local storage
+        console.log("data saved");
+        localStorage.setItem('formdata', JSON.stringify({
+        "ownerId": "3",
+        "title": "3333",
+        "propertyType": 1,
+        "propertyPrice": 30,
+        "cityId": 30,
+        "streetDetails": "33",
+        "description": "33",
+        "noOfBedsPerApartment": 30,
+        "noOfBedsInTheRoom": 30,
+        "noOfRooms": 30,
+        "noOfBathroom": 30,
+        "appartmentArea": 30,
+        "floorNumber": 30,
+        "hasKitchen": true,
+        "hasAirConditioner": true,
+        "hasMicrowave": true,
+        "hasDishWasher": true,
+        "hasWifi": true,
+        "hasRefrigerator": true,
+        "hasDishesAndSilverware": true,
+        "hasParking": true,
+        "hasWaterHeater": true,
+        "hasElivator": true
+      }));
+
+      console.log(this.addproperty2);
+      //  this.router.navigate(['/userdashboard/addproperty/stripe']);
+        // Reset the form after saving data
+        this.addproperty.reset();
+        this.router.navigate(['/userdashboard/addproperty/stripe']);
      
-    //  this.router.navigate(['/userdashboard/addproperty/stripe']);
-      // Reset the form after saving data
-      this.addproperty.reset();
-     
-    } else {
+    } 
+    else {
       // Validate all form fields and display error messages
       Object.keys(this.addproperty.controls).forEach((key) => {
         const control = this.addproperty.get(key);
@@ -87,7 +142,6 @@ export class AddPropertyComponent implements OnInit {
         console.log("data not saved");
       });
     }
-    this.router.navigate(['/userdashboard/addproperty/stripe']);
     // this.router.navigate(['/userdashboard/addproperty/stripe']);
    
   }
@@ -95,6 +149,7 @@ export class AddPropertyComponent implements OnInit {
   getCityByGovernorate(){
     const selectedGovernorateId = this.addproperty.controls['governorate'].value;
     this.addservices.getCityById(selectedGovernorateId).subscribe(data=>{
+      
       this.allCities=data;
       // console.log(this.allCities);
 

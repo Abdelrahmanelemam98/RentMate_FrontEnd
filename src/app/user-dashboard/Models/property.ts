@@ -5,7 +5,7 @@ export class property {
          public title:string ,
          public propertyType:number ,
          public propertyPrice:number ,
-         public cityId:number ,
+         public city:number ,
          public streetDetails:string ,
          public noOfBedsPerApartment:number ,
          public noOfBedsInTheRoom:number ,
