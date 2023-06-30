@@ -19,17 +19,17 @@ export class AddPropertyComponent implements OnInit {
  /* ownerId:number,
   public title:string ,
   public propertyType:number ,
-  public :number ,
-  public :number ,
-  public :string ,
-  public :number ,
-  public :number ,
-  public :number ,
-  public :number ,
+  public propertyPrice:number ,
+  public cityId:number ,
+  public streetDetails:string ,
+  public noOfBedsPerApartment:number ,
+  public noOfBedsInTheRoom:number ,
+  public noOfRooms:number ,
+  public noOfBathroom:number ,
   public appartmentArea:number ,
-  public :number ,
+  public floorNumber:number ,
   public hasKitchen: boolean,
-  public : boolean,
+  public hasAirConditioner: boolean,
   public hasMicrowave: boolean,
   public hasDishWasher: boolean,
   public hasWifi: boolean,
@@ -40,20 +40,19 @@ export class AddPropertyComponent implements OnInit {
   public hasElivator: boolean*/
   ngOnInit(): void {
     this.addproperty = this.formBuilder.group({
-      ownerId:"1",
       title: ['', Validators.required],
-      propertyType: ['', Validators.required],
-      noOfRooms: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      noOfBedsInTheRoom: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      noOfBedsPerApartment: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      noOfBathroom: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      appartmentArea: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      type: ['', Validators.required],
+      numberofrooms: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      numbersofbedsintheroom: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      numberofbedsperapartment: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      NoOfBathroom: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      AppartmentArea: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       propertydescription: ['', Validators.required],
-      propertyPrice: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      price: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       governorate: ['', Validators.required],
-      cityId: ['', Validators.required],
-      streetDetails: ['', Validators.required],
-      floorNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      city: ['', Validators.required],
+      street: ['', Validators.required],
+      floornumbeer: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       hasKitchen: [false],
       hasAirConditioner: [false],
       hasMicrowave: [false],
@@ -97,7 +96,7 @@ export class AddPropertyComponent implements OnInit {
     const selectedGovernorateId = this.addproperty.controls['governorate'].value;
     this.addservices.getCityById(selectedGovernorateId).subscribe(data=>{
       this.allCities=data;
-      console.log(this.allCities);
+      // console.log(this.allCities);
 
     })
       // this.allCities = this.addservices.getCityById(govId);

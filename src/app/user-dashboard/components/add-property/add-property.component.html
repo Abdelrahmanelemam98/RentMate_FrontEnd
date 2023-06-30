@@ -83,7 +83,7 @@
 
                   <div class="col-md-6 col-12">
                     <label class="form-label">PropertyType:</label>
-                    <select class="form-control form-control-lg" formControlName="propertyType">
+                    <select class="form-control form-control-lg" formControlName="type">
                         <option selected >Choose...</option>
                         <option value="1" >Apartment</option>
                         <option value="2" >Room</option>
@@ -105,7 +105,7 @@
                 </div>
                   <div class="col-md-6 col-12">
                     <label class="form-label">Number Of Rooms:</label>
-                    <input type="text" class="form-control"  formControlName="noOfRooms" >
+                    <input type="text" class="form-control"  formControlName="numberofrooms" >
                   </div>
                   <div
                   *ngIf="
@@ -129,7 +129,7 @@
                   <div class="col-md-6 col-12">
                     
                     <label class="form-label">Numbers Of Beds In The Room:</label>
-                    <input type="text" class="form-control"  formControlName="noOfBedsInTheRoom">
+                    <input type="text" class="form-control"  formControlName="numbersofbedsintheroom">
                   </div>
                   <div
                   *ngIf="
@@ -151,7 +151,7 @@
                 </div>
                   <div class="col-md-6 col-12">
                     <label class="form-label">Number Of Beds Per Apartment:</label>
-                    <input type="text" class="form-control" formControlName="noOfBedsPerApartment">
+                    <input type="text" class="form-control" formControlName="numberofbedsperapartment">
                   </div>
                   <div
                   *ngIf="
@@ -174,7 +174,7 @@
                   <div class="col-md-6 col-12" id="rent">
                     <label class="form-label">Number Of Bathroom:&nbsp;&nbsp;&nbsp;</label>
                     
-                    <input type="text" class="form-control" formControlName="noOfBathroom">
+                    <input type="text" class="form-control" formControlName="NoOfBathroom">
                      
 
                   </div>
@@ -201,7 +201,7 @@
                 <div class="col-md-6 col-12" id="rent">
                   <label class="form-label">Appartment Area(m^2):&nbsp;&nbsp;&nbsp;</label>
                   
-                  <input type="text" class="form-control" formControlName="appartmentArea">
+                  <input type="text" class="form-control" formControlName="AppartmentArea">
                    
 
                 </div>
@@ -226,7 +226,7 @@
               <div class="col-md-6 col-12" id="rent">
                 <label class="form-label">Floor Number:&nbsp;&nbsp;&nbsp;</label>
                 
-                <input type="text" class="form-control" formControlName="floorNumber">
+                <input type="text" class="form-control" formControlName="floornumbeer">
                  
 
               </div>
@@ -281,7 +281,7 @@
                   
                     <div class="col-md-3 col-12">
                       <label class="form-label">Price:</label>
-                      <input type="text" class="form-control" formControlName="propertyPrice" >
+                      <input type="text" class="form-control" formControlName="price" >
                     </div>
                     <div
                   *ngIf="
@@ -360,7 +360,7 @@
 
                       <div class="col-md-3 col-12">
                         <label class="form-label">City:</label>
-                        <select   class="form-control form-control-lg" formControlName="cityId">
+                        <select   class="form-control form-control-lg" formControlName="city">
                           <ng-container *ngFor = "let item of allCities">
                            
                             
@@ -390,7 +390,7 @@
                     </div>
                       <div class="col-md-3 col-12">
                         <label class="form-label">Street:</label>
-                        <input type="text" class="form-control" formControlName="streetDetails" >
+                        <input type="text" class="form-control" formControlName="street" >
                       </div>
                       <div class="Price-settings">
                         <span class="info"
