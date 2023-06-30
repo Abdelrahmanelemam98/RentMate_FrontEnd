@@ -66,30 +66,27 @@ export class StripeComponent implements OnInit {
       // const creditCardData = this.formGroup.value
       
 
-       this.addservices.addCustomer(this.obj).subscribe(
+      this.addservices.addCustomer(this.obj).subscribe(
          (result: any) => {
         this.result = result;
-      },
-        
-      );
+      });
+
+
       this.obj2.receiptEmail=this.formGroup.controls['email'].value;
-      // this.obj2.amount=50;
-      this.addservices.stripePayment( this.obj2
-//        
-      ).subscribe(data=>{
-        this.obj3 = data;
 
-
-        console.log(data);
+      this.addservices.stripePayment(this.obj2).subscribe(data=>{
+          this.obj3 = data;
+          console.log(data);
       })
       
       if(this.obj3.paymentId != ""){
-       const formData= localStorage.getItem('formdata');
+        const formData= localStorage.getItem('formdata');
         console.log(formData)
         this.addservices.saveProperty(formData)
         console.log("done")
       }
-      else{
+      else
+      {
         console.log("not saved");
       }
 

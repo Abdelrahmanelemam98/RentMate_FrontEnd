@@ -21,8 +21,10 @@ url ='https://localhost:7255/api/';
   stripePayment(Object:any){
     return this.http.post(this.url+"Stripe/payment/add", Object);
   }
-  saveProperty(Object:any){
-    return this.http.post<property>(this.url+"property", Object);
+
+
+  saveProperty(Object1:any){
+    return this.http.post(this.url+"Property/", Object1);
   }
   
 }
